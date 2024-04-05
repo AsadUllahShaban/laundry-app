@@ -7,10 +7,12 @@ import {
   Pressable,
 } from "react-native";
 import React from "react";
-import { Octicons } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
+import {
+  Octicons,
+  MaterialCommunityIcons,
+  Ionicons,
+  Entypo,
+} from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { colors } from "../../../assets/colors";
 
