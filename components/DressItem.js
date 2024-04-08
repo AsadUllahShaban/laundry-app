@@ -1,10 +1,16 @@
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  decrementQuantity,
+  incrementQuantity,
+} from "../redux/CartReducer";
 
 const DressItem = ({ item, selectedOption }) => {
-  //   const dispatch = useDispatch();
-  //   const cart = useSelector((state) => state.cart.cart);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cart);
   return (
     <View>
       <Pressable
@@ -37,7 +43,7 @@ const DressItem = ({ item, selectedOption }) => {
           </Text>
         </View>
 
-        {/* {cart.some((c) => c.item.id == item.id) ? (
+        {cart.some((c) => c.item.id == item.id) ? (
           <Pressable
             style={{
               flexDirection: "row",
@@ -48,7 +54,7 @@ const DressItem = ({ item, selectedOption }) => {
           >
             <Pressable
               onPress={() => {
-                // dispatch(decrementQuantity(item));
+                dispatch(decrementQuantity(item));
               }}
             >
               <Text
@@ -75,7 +81,7 @@ const DressItem = ({ item, selectedOption }) => {
 
             <Pressable
               onPress={() => {
-                // dispatch(incrementQuantity(item));
+                dispatch(incrementQuantity(item));
               }}
             >
               <Text
@@ -92,12 +98,12 @@ const DressItem = ({ item, selectedOption }) => {
         ) : (
           <Pressable
             onPress={() => {
-            //   dispatch(addToCart({ item, category: selectedOption }));
+              dispatch(addToCart({ item, category: selectedOption }));
             }}
           >
             <AntDesign name="pluscircleo" size={24} color="#89CFF0" />
           </Pressable>
-        )} */}
+        )}
       </Pressable>
     </View>
   );
